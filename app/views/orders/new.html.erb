@@ -1,0 +1,52 @@
+
+    <%#= simple_form_for @order do |f| %>
+     <%#= f.input :pickup_location %>
+     <%#= f.input :destination%>
+     <%#= f.input :send_name%>
+     <%#= f.input :tel%>
+     <%#= f.input :email%>
+     <%#= f.button :submit%>
+    <%# end %>
+
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+      <input type="pickup location" class="form-control" id="inputEmail3" placeholder="pickup location">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+      <input type="destination" class="form-control" id="inputPassword3" placeholder="destination">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+      <input type="send name" class="form-control" id="inputPassword3" placeholder="send name">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+      <input type="tel" class="form-control" id="inputPassword3" placeholder="tel">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputPassword3" placeholder="email">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>

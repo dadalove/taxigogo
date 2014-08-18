@@ -1,0 +1,45 @@
+<%#= link_to "new", new_order_path %>
+
+ <div class="signout">
+<%= link_to "Sign out", "/auth/facebook", method:'delete'%>
+</div>
+
+<div class="login">
+<%= link_to "Sign in with Facebook", "/auth/facebook" %>
+</div>
+
+
+<%#= image_tag("fb_login.png") %>
+
+<div class="slider">
+    <%= image_tag(".png") %>
+</div>
+
+
+<!-- <div class="content_pic">
+ <%#= image_tag("01.png") %>
+  <div class="content_text">
+    <h2>敲敲鍵盤完成資料</h2>
+    <p>不需手寫地址電話姓名給運將，只需輸入自己及收件者的資料，其他我們來！</p>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+  <%#= form_for @order do |f| %>
+     <%#= f.label :pickup_location,'pickup_location'%>
+     <%#= f.text_field :pickup_location%>
+     <%#= f.label :destination,'destination'%>
+     <%#= f.text_field :destination%>
+     <%#= f.label :send_name,'send_name'%>
+     <%#= f.text_field :send_name%>
+     <%#= f.label :tel,'tel'%>
+     <%#= f.text_field :tel%>
+     <%#= f.label :email,'email'%>
+     <%#= f.text_field :email%>
+     <%#= f.submit%>
+  <%# end %>
