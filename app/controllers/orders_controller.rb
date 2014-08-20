@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = current_user.orders.order("id DESC")
+    @orders = current_user.orders.order("id DESC").page(params[:page]).per(5)
   end
 
   def new
