@@ -2,8 +2,13 @@ Taxiweb::Application.routes.draw do
 
   resources :orders
 
-  get '/auth/facebook/callback' => 'auths#create'
+  # get '/auth/facebook/callback' => 'auths#create'
+  get '/auth/facebook/callback' => 'sessions#create'
+
   get '/auth/failure' => 'auths#failure'
+  # get 'destroy_user_session' => 'auths#destroy'
+  delete 'signout', to: 'sessions#destroy', as: 'signout'
+
   
   root 'orders#index'
   # The priority is based upon order of creation: first created -> highest priority.

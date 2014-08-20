@@ -11,19 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140817094517) do
+ActiveRecord::Schema.define(version: 20140818052547) do
+
+  create_table "cars", force: true do |t|
+    t.string   "name"
+    t.string   "status",                             default: "available"
+    t.decimal  "latitude",   precision: 8, scale: 5
+    t.decimal  "longitude",  precision: 8, scale: 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cars", ["latitude", "longitude"], name: "index_cars_on_latitude_and_longitude"
 
   create_table "orders", force: true do |t|
+    t.string   "status",          default: "pending"
+    t.integer  "car_id"
+    t.integer  "user_id"
     t.string   "pickup_location"
     t.string   "destination"
     t.string   "send_name"
     t.string   "tel"
     t.string   "email"
+    t.string   "recipient"
+    t.string   "recipient_tel"
+    t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "orders", ["car_id"], name: "index_orders_on_car_id"
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+
   create_table "users", force: true do |t|
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.string   "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -39,6 +39,11 @@ gem 'omniauth-facebook'
 gem "bootstrap-sass"
 
 gem 'simple_form', '3.1.0.rc2'
+
+gem 'devise'
+
+
+gem "geocoder"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -50,3 +55,8 @@ gem 'simple_form', '3.1.0.rc2'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+end
+
+

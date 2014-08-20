@@ -1,52 +1,83 @@
+<div class="message"> 
+  <% if @order.errors.any? %>
+   <% @order.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+   <% end %>
+  <% end %>
+</div>
 
-    <%#= simple_form_for @order do |f| %>
-     <%#= f.input :pickup_location %>
-     <%#= f.input :destination%>
-     <%#= f.input :send_name%>
-     <%#= f.input :tel%>
-     <%#= f.input :email%>
-     <%#= f.button :submit%>
-    <%# end %>
+  <div class="form">
+    <%= form_for @order do |f| %>
+      <div class="input">
+        <%= f.label :pickup_location,"Pickup Location"%>
+        <%= f.text_field :pickup_location %>
+        <%= f.label :destination,"Destination" %>
+        <%= f.text_field :destination %>
+        <%= f.label :content,"Content" %>
+        <%= f.text_field :content %>
+        <%= f.label :tel,"Tel" %>
+        <%= f.text_field :tel %>
+        <%= f.label :recipient,"Recipient" %>
+        <%= f.text_field :recipient %>
+        <%= f.label :recipient_tel,"Recipient Tel" %>
+        <%= f.text_field :recipient_tel %>
+      </div>
+      <div class="but">
+        <%= f.submit"submit" %>
+      </div>
+    <% end %>
+  </div>
+<%#= link_to "Sign out", "destroy_user_session_path", method:'delete'%>
 
-<form class="form-horizontal" role="form">
+
+
+
+<!-- <form class="form-horizontal" role="form">
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label"></label>
     <div class="col-sm-10">
-      <input type="pickup location" class="form-control" id="inputEmail3" placeholder="pickup location">
+      <input type="pickup location" class="form-control" id="inputEmail3" placeholder="Pickup Location">
     </div>
   </div>
 
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label"></label>
     <div class="col-sm-10">
-      <input type="destination" class="form-control" id="inputPassword3" placeholder="destination">
+      <input type="destination" class="form-control" id="inputPassword3" placeholder="Destination">
     </div>
   </div>
 
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label"></label>
     <div class="col-sm-10">
-      <input type="send name" class="form-control" id="inputPassword3" placeholder="send name">
+      <input type="content" class="form-control" id="inputPassword3" placeholder="Content">
     </div>
   </div>
 
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label"></label>
     <div class="col-sm-10">
-      <input type="tel" class="form-control" id="inputPassword3" placeholder="tel">
+      <input type="tel" class="form-control" id="inputPassword3" placeholder="Tel">
     </div>
   </div>
 
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label"></label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputPassword3" placeholder="email">
+      <input type="recipient" class="form-control" id="inputPassword3" placeholder="Recipient">
     </div>
   </div>
+
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+      <input type="recipient tel" class="form-control" id="inputPassword3" placeholder="Recipient Tel">
+    </div>
+  </div>  
   
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">Submit</button>
     </div>
   </div>
-</form>
+</form> -->
