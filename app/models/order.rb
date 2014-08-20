@@ -11,6 +11,9 @@ class Order < ActiveRecord::Base
   # validates :email,presence: true
 
   def book_car!
+
+    return true
+
     arr = Car.where( :status => "available").near(pickup_location)
     
     return false if arr.empty?
@@ -32,7 +35,7 @@ class Order < ActiveRecord::Base
   end
 
   def strip_email
-    self.email = self.email.strip
+    self.email = self.email.try(:strip)
   end
 
 

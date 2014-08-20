@@ -6,19 +6,24 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order=Order.new
+    @order = Order.new
+    @cars_hash = Car.all.map { |c|
+      {
+        "lat" => c.latitude,
+        "lng" => c.longitude,
+        "infowindow" => c.name
+      }
+    }
   end
 
   def create
     @order = Order.new(order_params)
-    if @order.save
-    flash[:notise]='稍後計程車就會抵達'
-    redirect_to new_order_path
-      if @order.book_car!
-        # redirect_to ok
-        Car.where( :status => "available").near(pickup_location)
+    if @order.save   
+      if car = @order.book_car!
+        flash[:notise]='稍後計程車就會抵達'
+        redirect_to new_order_path
       else
-        flash[:notise]='目前沒有計程車'
+        flash[:notice]='目前沒有計程車'
       end
 
     else
@@ -37,7 +42,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:pickup_location,:destination,:tel,:recipient,:recipient_tel,:email)
+    params.require(:order).permit(:pickup_location,:destination,:tel,:recipient,:recipient_tel,:email, :content)
   end
   
 end
