@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     Rails.logger.debug("-------test---------")
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    flash[:notise]='Hi,你已經成功登入'
+    flash[:notice]='Hi,你已經成功登入'
     #redirect_to root_path
     redirect_to new_order_path
   end

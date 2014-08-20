@@ -1,8 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-
-    @order=Order.new
+    @orders = current_user.orders.order("id DESC")
   end
 
   def new
@@ -17,15 +16,16 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = current_user.orders.build(order_params)
+
     if @order.save   
       if car = @order.book_car!
-        flash[:notise]='稍後計程車就會抵達'
-        redirect_to new_order_path
+        flash[:notice]='稍後計程車就會抵達'
       else
         flash[:notice]='目前沒有計程車'
       end
 
+      redirect_to orders_path
     else
       # render error form
       render :new
@@ -33,11 +33,22 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order=current_user.order.find(params[:order])
-    @users=@order.users
+    @order = current_user.orders.find(params[:id])
   end
 
-  
+  def destroy
+    @order = current_user.orders.find(params[:id])
+    
+    if car = @order.car
+      car.status = "available"
+      car.save
+    end
+
+    @order.destroy
+
+    redirect_to orders_path
+  end
+
 
   private
 

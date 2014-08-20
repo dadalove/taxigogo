@@ -11,9 +11,6 @@ class Order < ActiveRecord::Base
   # validates :email,presence: true
 
   def book_car!
-
-    return true
-
     arr = Car.where( :status => "available").near(pickup_location)
     
     return false if arr.empty?
@@ -23,9 +20,11 @@ class Order < ActiveRecord::Base
     car.save
 
     self.status = "processed"
+    self.car = car
     self.save
-  end
 
+    return car
+  end
 
   after_create :send_user_mail
   before_validation :strip_email

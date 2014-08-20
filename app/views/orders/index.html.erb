@@ -1,33 +1,18 @@
-<%#= link_to "new", new_order_path %>
 
+<p> Total: <%= @orders.count %> orders </p>
 
-
-
-<%#= image_tag("fb_login.png") %>
-
-<div class="slider">
-    <%= image_tag("slider.jpg") %>
-</div>
-
-
-
-
-
-
-
-
-
-
-  <%#= form_for @order do |f| %>
-     <%#= f.label :pickup_location,'pickup_location'%>
-     <%#= f.text_field :pickup_location%>
-     <%#= f.label :destination,'destination'%>
-     <%#= f.text_field :destination%>
-     <%#= f.label :send_name,'send_name'%>
-     <%#= f.text_field :send_name%>
-     <%#= f.label :tel,'tel'%>
-     <%#= f.text_field :tel%>
-     <%#= f.label :email,'email'%>
-     <%#= f.text_field :email%>
-     <%#= f.submit%>
-  <%# end %>
+<table>
+<% @orders.each do |order| %>
+ <tr>
+    <td>
+    <%= link_to "#{order.car.try(:name)} #{order.created_at}", order_path(order) %>
+    </td>
+    <td>
+        <%= order.status %>
+    </td>
+    <td>
+        <%= link_to "結束", order_path(order), :method => :delete %>
+    </td>
+</tr>
+<% end %>
+</table>
