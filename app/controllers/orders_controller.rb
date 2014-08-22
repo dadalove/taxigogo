@@ -2,6 +2,13 @@ class OrdersController < ApplicationController
 
   def index
     @orders = current_user.orders.order("id DESC").page(params[:page]).per(5)
+    @cars_hash = Car.all.map { |c|
+      {
+        "lat" => c.latitude,
+        "lng" => c.longitude,
+        "infowindow" => c.name
+      }
+    }
   end
 
   def new
@@ -34,6 +41,13 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find(params[:id])
+    @cars_hash = Car.all.map { |c|
+      {
+        "lat" => c.latitude,
+        "lng" => c.longitude,
+        "infowindow" => c.name
+      }
+    }
   end
 
   def destroy

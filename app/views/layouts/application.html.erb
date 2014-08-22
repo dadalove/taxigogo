@@ -11,13 +11,15 @@
 <div class="header"></div>
 
 <div class="logo">
-  <%= link_to "Taxi", root_path %>
+  <%= link_to "TAXIGOGO", root_path %>
 </div>
 
 <% if current_user %>
 
-<%= link_to "我的訂單", orders_path %>
-<%= link_to "新增訂單", new_order_path %> 
+<div class="myorder">
+  <%= link_to "我的訂單", orders_path %>
+  <%= link_to "新增訂單", new_order_path %> 
+</div>
 
 <div class="signout">
     <%= link_to "登出", signout_path, method:'delete'%>
@@ -36,9 +38,7 @@
 
 <%= yield %>
 
-<div class="footer">
-  Copyright © 2014 TAXIGOGO. All rights reserved and other such important stuff.
-</div>
+
 
 </body>
 </html>
