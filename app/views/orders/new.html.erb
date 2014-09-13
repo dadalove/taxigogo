@@ -13,29 +13,30 @@
 
   <div class="form">
     <%= form_for @order do |f| %>
+    <legend>我要快送</legend>
       <div class="input">
-        <%= f.label :pickup_location,"Pickup Location"%>
+        <%= f.label :pickup_location,"出發地"%>
         <%= f.text_field :pickup_location %>
-        <%= f.label :destination,"Destination" %>
+        <%= f.label :destination,"目的地" %>
         <%= f.text_field :destination %>
-        <%= f.label :content,"Content" %>
+        <%= f.label :content,"寄送物品" %>
         <%= f.text_field :content %>
-        <%= f.label :tel,"Tel" %>
+        <%= f.label :tel,"寄件人電話" %>
         <%= f.text_field :tel %>
-        <%= f.label :recipient,"Recipient" %>
+        <%= f.label :recipient,"收件人" %>
         <%= f.text_field :recipient %>
-        <%= f.label :recipient_tel,"Recipient Tel" %>
+        <%= f.label :recipient_tel,"收件人電話" %>
         <%= f.text_field :recipient_tel %>
       </div>
       <div class="but">
-        <%= f.submit"submit" %>
+        <%= f.submit"送出" %>
       </div>
     <% end %>
   </div>
 
 
 <div style='width: 800px;'>
-  <div id="map" style='width: 1440px; height: 550px;'></div>
+  <div id="map" style='width: 1440px; height: 600px;'></div>
 </div>
 
 <div class="footer foo">

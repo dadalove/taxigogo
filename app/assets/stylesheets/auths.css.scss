@@ -1,6 +1,9 @@
 // Place all the styles related to the auths controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  position: relative;
+}
 .form{
   margin-left: 20px;
   // margin-bottom: 20px;  
@@ -15,13 +18,18 @@
   box-shadow: 0 0 3px 0 #999 inset,0 0 2px 1px #222,0 0 2px 2px rgba(0,0,0,0.3);
 }
 
+legend{
+  color: #67e;
+  text-align: center;
+}
+
 .input{
   width: 130px;
   margin-left: 40px;
-  padding-top: 20px;
+  padding-top: -10px;
 }
 .but{
-  padding-top: 40px;
+  padding-top: 20px;
   margin-left: 85px;
 }
 .message{
@@ -31,24 +39,6 @@
   position: relative;
   top: -180px;
 }
-// .col-sm-10{
-//   margin-right: 22px;
-//   padding-top: 10px;
-//   position: relative;
-//   right: 10px;
-//   width: 75%;
-// }
-
-// .btn-default{
-//   color: #fff;
-//   background-color: #8da;
-//    padding: auto; 
-// }
-// .col-sm-offset-2{
-//   margin-left: 37%;
-// }
-
-
 
 .header{
   width: 100%;
@@ -85,7 +75,7 @@
   color: white;
   font-size: 16px;
   margin-left: 1270px;
-  margin-top: 50px;
+  margin-top: 65px;
   position: relative;
   bottom: 207px;
   z-index: 4;
@@ -102,7 +92,7 @@ span{
   margin-top: 35px;
   position: relative;
   z-index: 4;
-  bottom: 232px;
+  bottom: 227px;
 }
 
 .slider {
@@ -155,9 +145,9 @@ span{
 }
 
 .myorder{
-  position: relative;
-  top: -135px;
-  right: -950px;
+  position: absolute;
+  top: 35px;
+  left: 950px;
   z-index: 4;
   // margin-top: -100px; 
 }

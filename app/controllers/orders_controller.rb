@@ -5,8 +5,9 @@ class OrdersController < ApplicationController
     @cars_hash = Car.all.map { |c|
       {
         "lat" => c.latitude,
-        "lng" => c.longitude,
-        "infowindow" => c.name
+        "lng" => c.longitude,      
+        "infowindow" => c.name,
+        
       }
     }
   end
@@ -17,14 +18,14 @@ class OrdersController < ApplicationController
       {
         "lat" => c.latitude,
         "lng" => c.longitude,
-        "infowindow" => c.name
+        "infowindow" => c.name,
+        "picture" => {"url" => "http://shipilin.com/portfolio/images/saccab_cab.png"}
       }
     }
   end
 
   def create
     @order = current_user.orders.build(order_params)
-
     if @order.save   
       if car = @order.book_car!
         flash[:notice]='稍後計程車就會抵達'
